@@ -1,6 +1,10 @@
+// import Pages
 import { NewRoom } from './pages/NewRoom'
 import { Home } from './pages/Home'
+
+//Import  Router
 import { BrowserRouter, Route } from 'react-router-dom';
+//Import Context Api
 import {AuthContextProvider} from './contexts/AuthContext'
 
 
