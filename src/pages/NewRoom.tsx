@@ -1,5 +1,6 @@
+import { FormEvent } from 'react';
 // import Router
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 // import Images
 import illustrationImg from '../assets/images/illustration.svg';
@@ -13,10 +14,43 @@ import {Button} from '../components/Button';
 
 //import Hooks
 import { useAuth} from '../hooks/useAuth'
+import { useState } from 'react';
+
+//import firebase
+import { database } from '../services/firebase';
 
 export function NewRoom() {
 
   const {user} = useAuth();
+  const history = useHistory();
+
+
+  //Estados
+  const [newRoom,setNewRoom] =useState('');
+
+    //  Criar Sala
+    async function handleCreateRoom(event:FormEvent) {
+      //Fazer formulário n recarregar
+      event.preventDefault();
+      //trim verifica os espaços
+      if(newRoom.trim() === '') {
+        return;
+        
+        //colocar alerta melhoria
+      }
+      //roomRef recebe minha categoria rooms
+      const roomRef = database.ref('rooms');
+
+      //inserir informação em rooms
+      const firebaseRoom = await roomRef.push({
+        title: newRoom,
+        authorId: user?.id,
+
+      });
+
+      //Redirecionar para Rooms/key do firebase
+      history.push(`/Room/${firebaseRoom.key}`)
+    }
 
   return (
 
@@ -39,10 +73,13 @@ export function NewRoom() {
           <h1>Olá {user?.name}</h1> 
           <h2>Criar uma nova Sala</h2>
 
-          <form>
+          <form onSubmit={handleCreateRoom}>
             <input
               type="text"
               placeholder="Nome da Sala"
+              //Toda vez que o user digitar alguma coisa pegar esse valor
+              onChange={event => setNewRoom(event.target.value)}
+              value={newRoom}
             />
             <Button type="submit">Criar sala</Button>
           </form>

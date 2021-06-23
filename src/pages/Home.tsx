@@ -1,3 +1,5 @@
+//import Firebase
+import { database } from '../services/firebase';
 //import Routers
 import { useHistory } from 'react-router-dom';
 
@@ -14,6 +16,7 @@ import { Button } from '../components/Button';
 
 //Import Hooks
 import { useAuth } from '../hooks/useAuth';
+import { FormEvent, useState } from 'react';
 
 export function Home() {
 
@@ -21,6 +24,7 @@ export function Home() {
 
   //Estados
   const { user, signInWithGoogle } = useAuth();
+  const [roomCode, setRoomCode] = useState('');
 
   //Funções
 
@@ -30,10 +34,31 @@ export function Home() {
     //Se não existir user 
     if (!user) {
       //Chamar função de Login com Google
+      //se await for true continua o código
       await signInWithGoogle();
     }
     // Enviar para history o caminho da Nova Página
-    history.push('/rooms/new');
+    history.push('/Room/New');
+  }
+
+  async function handleJoinRoom(event: FormEvent) {
+    event.preventDefault();
+
+    //trim verifica os espaços
+    if (roomCode.trim() === '') {
+      return;
+      //colocar alerta melhoria
+    }
+
+    //buscar todos os dados dessa sala .get()
+    const roomRef = await database.ref(`rooms/${roomCode}`).get();
+
+    if(!roomRef.exists()){
+      alert('Sala Não Existe');
+      return;
+    }
+
+    history.push(`Room/${roomCode}`);
   }
 
   return (
@@ -57,7 +82,7 @@ export function Home() {
             onClick={handleCreateRoom}
             className="create-room"
           >
-          <img src={googleIconImg} alt="Logo Google"></img>
+            <img src={googleIconImg} alt="Logo Google"></img>
             Crie sua sala com o Google
           </button>
 
@@ -65,16 +90,19 @@ export function Home() {
             ou entre em uma sala existente
           </div>
 
-          <form>
+          <form onSubmit={handleJoinRoom}>
             <input
               type="text"
               placeholder="Digite o código da Sala"
+              //Toda vez que o user digitar alguma coisa pegar esse valor
+              onChange={event => setRoomCode(event.target.value)}
+              value={roomCode}
             />
             <Button type="submit">Entrar na sala</Button>
           </form>
 
         </div>
-        
+
       </main>
 
     </div>
