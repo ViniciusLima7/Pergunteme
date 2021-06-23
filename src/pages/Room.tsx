@@ -1,3 +1,4 @@
+//import Hooks
 import { FormEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -13,8 +14,9 @@ import { database } from '../services/firebase';
 
 //import css
 import '../styles/room.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
-//typescript
+//types
 
 type FirebaseQuestions = Record<string, {
   author: {
@@ -79,8 +81,9 @@ export function Room() {
     event.preventDefault();
     //trim verifica os espaços
     if (newQuestion.trim() === '') {
+      toast.error("Primeiro,  digite sua pergunta");
       return;
-      //colocar alerta melhoria
+     
     }
 
     if (!user) {
@@ -145,9 +148,13 @@ export function Room() {
                 <span>Para enviar uma pergunta, <button>faça seu login</button>.</span>
               )}
             <Button type="submit" disabled={!user}>Enviar Pergunta</Button>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
           </div>
         </form>
-{JSON.stringify(questions)}
+        {JSON.stringify(questions)}
       </main>
 
     </div>

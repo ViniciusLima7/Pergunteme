@@ -17,6 +17,7 @@ import { Button } from '../components/Button';
 //Import Hooks
 import { useAuth } from '../hooks/useAuth';
 import { FormEvent, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 export function Home() {
 
@@ -46,18 +47,21 @@ export function Home() {
 
     //trim verifica os espaços
     if (roomCode.trim() === '') {
+      toast.error("Primeiro,  digite o código da Sala");
       return;
-      //colocar alerta melhoria
+      
     }
 
     //buscar todos os dados dessa sala .get()
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if(!roomRef.exists()){
-      alert('Sala Não Existe');
-      return;
-    }
+      toast.error("Sala Não Existe");
 
+      //alert('Sala Não Existe');
+      return ;
+    }
+    
     history.push(`Room/${roomCode}`);
   }
 
@@ -99,6 +103,10 @@ export function Home() {
               value={roomCode}
             />
             <Button type="submit">Entrar na sala</Button>
+            <Toaster 
+                position="bottom-right"
+                reverseOrder={false}
+            />
           </form>
 
         </div>

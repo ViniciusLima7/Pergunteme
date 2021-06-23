@@ -39,3 +39,8 @@ Abra o terminal na pasta do seu projeto e executa o comando abaixo.
 and
 `yarn add @type/react-router-dom -D`
 
+## Instalar Toast
+
+`yarn add react-hot-toast`
+
+Documentação: https://react-hot-toast.com/
