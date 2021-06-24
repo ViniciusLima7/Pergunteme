@@ -61,6 +61,12 @@ export function Home() {
       //alert('Sala Não Existe');
       return ;
     }
+      //Se a Sala está fechada
+    if(roomRef.val().endedAt){
+      toast.error("Sala Fechada");
+
+      return;
+    }
     
     history.push(`Room/${roomCode}`);
   }
