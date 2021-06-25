@@ -1,6 +1,6 @@
 # Passo a  passo para usar esse Projeto.
 
-<img src="../assets/images/capa.png">
+<img src="/assets/images/capa.png">
 </img>
 
 ## Visão Geral
