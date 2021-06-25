@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import './styles.scss';
+import classnames from 'classnames';
 //types
 type QuestionPops = {
   content: string;
@@ -9,13 +10,20 @@ type QuestionPops = {
   };
   //REACTNODE E TUDO QUE É ACEITÁVEL NO RETURN
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighLighted?: boolean;
+
 }
 
 export function Question({
-  content, author, children,
+  content, author, children, isAnswered = false, isHighLighted = false
 }: QuestionPops) {
   return (
-    <div className="question">
+    <div className={classnames(
+      'question',
+      {answered: isAnswered},
+      {highlighted: isHighLighted && !isAnswered},
+    )}>
       <p>{content}</p>
       <footer>
         <div className="user-info">

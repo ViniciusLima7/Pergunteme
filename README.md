@@ -44,3 +44,19 @@ and
 `yarn add react-hot-toast`
 
 Documentação: https://react-hot-toast.com/
+
+## Instalar ClassNames
+
+`yarn add classnames`
+
+## Instalar a Firebase CLI
+`npm install -g firebase-tools`
+
+## Inicializar seu projeto
+
+Faça login no google
+`firebase login`
+
+Iniciar Projeto
+
+`firebase init`

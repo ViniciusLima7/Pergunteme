@@ -6,6 +6,9 @@ import { useRoom } from '../hooks/useRoom';
 // import Images
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
+import checkImg from '../assets/images/check.svg';
+import answerImg from '../assets/images/answer.svg';
+
 
 //import components
 import { Button } from '../components/Button';
@@ -53,6 +56,18 @@ export function AdminRoom() {
     }
   }
 
+  async function handleCheckQuestionAnswered(questionId:string){
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+       isAnswered: true,
+    })
+  }
+
+  async function handleHighlightQuestion(questionId:string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighLighted: true,
+    })
+  }
+
   return (
     <div id="page-room">
 
@@ -90,7 +105,28 @@ export function AdminRoom() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighLighted={question.isHighLighted}
               >
+                {!question.isAnswered &&(
+                  // Fragmento não atrapalha o css e não e mostrado no html
+                  <>
+                  <button 
+                  type="button"
+                  onClick={ () =>handleCheckQuestionAnswered(question.id)}
+                >
+                  <img src={checkImg} alt="Marcar Pergunta como Respondida"></img>
+                </button>
+                <button 
+                  type="button"
+                  onClick={ () =>handleHighlightQuestion(question.id)}
+                >
+                  <img src={answerImg} alt="Dar Destaque Pergunta"></img>
+                </button>
+                  </>
+                )}
+                
+
                 <button 
                   type="button"
                   onClick={ () =>handleDeleteQuestion(question.id)}
