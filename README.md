@@ -3,6 +3,8 @@
 <img src="/assets/images/capa.png">
 </img>
 
+
+
 ## Visão Geral
 
 Projeto Desenvolvido na 6° Edição do NLW, utilizando ReactJS, com o propósito de Fazer Perguntas e Responder ao vivo.
