@@ -1,8 +1,11 @@
 # Passo a  passo para usar esse Projeto.
 
+<img src="../assets/images/capa.png">
+</img>
+
 ## Visão Geral
 
-Projeto Desenvolvido na 6° Edição do NLW, utilizando ReactJS, com o propósito de Fazer e Receber Perguntas.
+Projeto Desenvolvido na 6° Edição do NLW, utilizando ReactJS, com o propósito de Fazer Perguntas e Responder ao vivo.
 
 Aplicação Integrada com o Firebase, Login Google, React Router.
 
