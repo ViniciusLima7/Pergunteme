@@ -1,7 +1,6 @@
 # Passo a  passo para usar esse Projeto.
 
-<img src="/assets/images/capa.png">
-</img>
+https://github.com/[ViniciusLima7]/[Pergunteme]/blob/[master]/capa.png?raw=true
 
 
 
