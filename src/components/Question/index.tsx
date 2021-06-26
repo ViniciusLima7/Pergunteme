@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
-import './styles.scss';
+
 import classnames from 'classnames';
+import './styles.scss';
+
 //types
 type QuestionPops = {
   content: string;
@@ -16,13 +18,20 @@ type QuestionPops = {
 }
 
 export function Question({
-  content, author, children, isAnswered = false, isHighLighted = false
+  content,
+  author,
+  children,
+  isAnswered = false,
+  isHighLighted = false
 }: QuestionPops) {
   return (
     <div className={classnames(
       'question',
-      {answered: isAnswered},
-      {highlighted: isHighLighted && !isAnswered},
+      //se isAnswered for true aplicar classe answered
+      { answered: isAnswered },
+
+      //se isHighlighted for true e isAnswered for false aplicar classe highlighted
+      { highlighted: isHighLighted && !isAnswered },
     )}>
       <p>{content}</p>
       <footer>

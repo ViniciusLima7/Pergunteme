@@ -18,6 +18,7 @@ import { useState } from 'react';
 
 //import firebase
 import { database } from '../services/firebase';
+import {toast, Toaster} from 'react-hot-toast';
 
 export function NewRoom() {
 
@@ -34,9 +35,10 @@ export function NewRoom() {
       event.preventDefault();
       //trim verifica os espaços
       if(newRoom.trim() === '') {
+        toast.error("Primeiro,  digite o nome da sala");
         return;
         
-        //colocar alerta melhoria
+        
       }
       //roomRef recebe minha categoria rooms
       const roomRef = database.ref('rooms');
@@ -49,7 +51,7 @@ export function NewRoom() {
       });
 
       //Redirecionar para Rooms/key do firebase
-      history.push(`/Room/${firebaseRoom.key}`)
+      history.push(`/Room/admin/${firebaseRoom.key}`);
     }
 
   return (
@@ -82,6 +84,10 @@ export function NewRoom() {
               value={newRoom}
             />
             <Button type="submit">Criar sala</Button>
+            <Toaster
+              position="bottom-right"
+              reverseOrder={false}
+            />
           </form>
 
           <p>Quer entrar em uma sala já existente?

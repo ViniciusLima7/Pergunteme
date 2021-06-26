@@ -1,6 +1,14 @@
 # Passo a  passo para usar esse Projeto.
 
-https://github.com/[ViniciusLima7]/[Pergunteme]/blob/[master]/capa.png?raw=true
+<p align="center">
+  <img alt="Letmeask" src="https://github.com/ViniciusLima7/Pergunteme/blob/main/src/assets/images/logo.svg" width="160px">
+</p>
+
+<h1 align="center">
+    <img alt="Letmeask" title="Letmeask" src="https://github.com/ViniciusLima7/letmeask/blob/main/src/assets/images/capa.png" />
+</h1>
+
+<br>
 
 
 

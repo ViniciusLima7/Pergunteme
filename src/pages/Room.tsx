@@ -1,6 +1,6 @@
 //import Hooks
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 
@@ -12,6 +12,7 @@ import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 import { Question } from '../components/Question';
+
 import { database } from '../services/firebase';
 
 //import css
@@ -20,37 +21,43 @@ import toast, { Toaster } from 'react-hot-toast';
 
 //types
 
-
-
-
-
 type RoomParams = {
   id: string;
 }
 
 export function Room() {
 
-  const { user } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
+  const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
 
   //Estados
-
   const [newQuestion, setNewQuestion] = useState('');
 
+//Funções
+
+function backHome(){
+  history.push(`/`);
+}
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
+
+    if (!user) {
+      //  toast.error("Você não esta logado,faça seu login.");
+      await signInWithGoogle();
+      //throw new Error('Você não esta logado');
+      return;
+    }
     //trim verifica os espaços
-    if (newQuestion.trim() === '') {
+    if (newQuestion.trim() === '' && user) {
       toast.error("Primeiro,  digite sua pergunta");
       return;
 
     }
 
-    if (!user) {
-      throw new Error('Você não esta logado');
-    }
+
 
     const question = {
       content: newQuestion,
@@ -86,7 +93,11 @@ export function Room() {
       <header>
 
         <div className="content">
-          <img src={logoImg} alt="Logo"></img>
+          <img
+            src={logoImg} alt="Logo"
+            onClick={backHome}
+            >
+          </img>
           <RoomCode code={roomId}></RoomCode>
         </div>
 

@@ -48,6 +48,10 @@ export function AdminRoom() {
     history.push('/');
   }
 
+  function backHome(){
+    history.push(`/`);
+  }
+
 
  async function handleDeleteQuestion(questionId:string){
 
@@ -74,7 +78,11 @@ export function AdminRoom() {
       <header>
 
         <div className="content">
-          <img src={logoImg} alt="Logo"></img>
+          <img 
+          src={logoImg} 
+          alt="Logo"
+          onClick={backHome}
+          ></img>
           <div>
             <RoomCode code={roomId}></RoomCode>
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>
