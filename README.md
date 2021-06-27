@@ -15,6 +15,10 @@ Projeto Desenvolvido na 6° Edição do NLW, utilizando ReactJS, com o propósit
 
 Aplicação Integrada com o Firebase, Login Google, React Router.
 
+# Projeto Publicado
+
+https://letmeask-ap.web.app/
+
 ## Pré- Requisitos
 
 - Editor de Texto

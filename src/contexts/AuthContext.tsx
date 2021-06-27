@@ -26,8 +26,6 @@ export const AuthContext = createContext({} as AuthContextType);
 export function AuthContextProvider(props: AuthContextProviderProps) {
 
 //Estados
-
-
 const [user, setUser] = useState<User>();
 
 

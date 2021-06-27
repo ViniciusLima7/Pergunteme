@@ -16,7 +16,7 @@ import {Button} from '../components/Button';
 import { useAuth} from '../hooks/useAuth'
 import { useState } from 'react';
 
-//import firebase
+//import firebase e Toaster
 import { database } from '../services/firebase';
 import {toast, Toaster} from 'react-hot-toast';
 

@@ -3,6 +3,10 @@
   align-items: center;
   height: 100vh;
 
+  &.dark{
+    background: #333;
+  }
+
   aside {
     flex: 7;
     background: #835afd;
@@ -40,6 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
 
   .main-content {
@@ -94,6 +99,32 @@
     border-radius:8px;
     font-weight: 500;
     background: #EA4335;
+    color:#FFF;
+
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+
+    cursor: pointer;
+    border:0;
+
+    transition: filter(0.2);
+
+    img{
+      margin-right: 8px;
+    }
+    &:hover{
+      filter: brightness(0.9);
+    }
+  }
+
+  .alter-theme{
+    position: top;
+    margin-top:64px;
+    height:50px;
+    border-radius:8px;
+    font-weight: 500;
+    background: #7651E4;
     color:#FFF;
 
     display: flex;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {useAuth}from "../hooks/useAuth"
 
 import { database } from '../services/firebase';
@@ -31,11 +32,12 @@ type QuestionType = {
   likeId:string | undefined;
 }
 export function useRoom(roomId: string){
-
+//Estados
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');
+  //Hooks
   const { user} = useAuth();
-
+  
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 

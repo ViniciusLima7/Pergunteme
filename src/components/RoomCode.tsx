@@ -7,7 +7,6 @@ import copyImg from '../assets/images/copy.svg';
 import '../styles/room-code.scss';
 
 //Types
-
 type RoomCodeProps = {
   code: string;
 }
@@ -25,6 +24,7 @@ export function RoomCode(props: RoomCodeProps) {
   }
 
   return (
+    //Fragmento
     <>
       <button
         className="room-code"

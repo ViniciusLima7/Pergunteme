@@ -1,6 +1,5 @@
 //import Hooks
 import { useHistory, useParams } from 'react-router-dom';
-//import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 
 // import Images
@@ -22,11 +21,6 @@ import { database } from '../services/firebase';
 
 
 //types
-
-
-
-
-
 type RoomParams = {
   id: string;
 }
@@ -39,6 +33,10 @@ export function AdminRoom() {
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
 
+//Funções
+function backHome(){
+  history.push(`/`);
+}
 
   async function handleEndRoom(){
     await database.ref(`rooms/${roomId}`).update({ 
@@ -47,11 +45,6 @@ export function AdminRoom() {
 
     history.push('/');
   }
-
-  function backHome(){
-    history.push(`/`);
-  }
-
 
  async function handleDeleteQuestion(questionId:string){
 

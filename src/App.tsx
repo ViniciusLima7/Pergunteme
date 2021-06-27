@@ -8,6 +8,7 @@ import { AdminRoom } from './pages/AdminRoom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //Import Context Api
 import { AuthContextProvider } from './contexts/AuthContext'
+import {ThemeContextProvider} from './contexts/ThemeContext';
 
 
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ThemeContextProvider>
       <AuthContextProvider>
         <Switch>
           {/* exact pega a rota exatamente e n apenas o começo */}
@@ -26,6 +28,7 @@ function App() {
           <Route path="/Room/admin/:id" component={AdminRoom}></Route>
         </Switch>
       </AuthContextProvider>
+      </ThemeContextProvider>
     </BrowserRouter>
 
   );

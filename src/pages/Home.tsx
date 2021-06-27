@@ -17,11 +17,13 @@ import { Button } from '../components/Button';
 
 //Import Hooks
 import { useAuth } from '../hooks/useAuth';
+import { useTheme } from '../hooks/useTheme';
 import { FormEvent, useState } from 'react';
 
 export function Home() {
 
   const history = useHistory();
+  const {theme,toggleTheme} = useTheme();
 
   //Estados
   const { user, signInWithGoogle } = useAuth();
@@ -65,7 +67,9 @@ export function Home() {
       toast.error("Sala Fechada");
       return;
     }
-    if(roomRef.val().authorId == user?.id){
+
+    //Se você for o admin entrar na tela de admin
+    if(roomRef.val().authorId === user?.id){
       history.push(`Room/admin/${roomCode}`);
  
     } else{
@@ -75,9 +79,10 @@ export function Home() {
 
   return (
 
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
 
       <aside>
+
 
         <img src={illustrationImg} alt="Ilustração"></img>
         <strong>Crie salas  de Q&amp;A ao-vivo</strong>
@@ -86,14 +91,21 @@ export function Home() {
       </aside>
 
       <main>
-
+        
         <div className="main-content">
-
+        
+        {/* <button 
+        onClick={toggleTheme}
+        className="alter-theme"
+        >
+          Mudar Tema
+        </button> */}
           <img src={logoImg} alt="Logo"></img>
           <button
             onClick={handleCreateRoom}
             className="create-room"
           >
+            <br></br>
             <img src={googleIconImg} alt="Logo Google"></img>
             Crie sua sala com o Google
           </button>
