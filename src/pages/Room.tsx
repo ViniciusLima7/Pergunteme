@@ -68,7 +68,8 @@ function backHome(){
       isHighLighted: false,
       isAnswered: false
     };
-
+    
+    toast.success('Pergunta Enviada com Sucesso');
     await database.ref(`rooms/${roomId}/questions`).push(question);
     setNewQuestion('');
   }

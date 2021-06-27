@@ -1,7 +1,8 @@
 //import Firebase
 import { database } from '../services/firebase';
-//import Routers
+//import Routers e toaster
 import { useHistory } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 // import Images
 import illustrationImg from '../assets/images/illustration.svg';
@@ -17,7 +18,6 @@ import { Button } from '../components/Button';
 //Import Hooks
 import { useAuth } from '../hooks/useAuth';
 import { FormEvent, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
 
 export function Home() {
 
@@ -55,20 +55,22 @@ export function Home() {
     //buscar todos os dados dessa sala .get()
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
+    //Se Sala não existir
     if(!roomRef.exists()){
       toast.error("Sala Não Existe");
-
-      //alert('Sala Não Existe');
       return ;
     }
       //Se a Sala está fechada
     if(roomRef.val().endedAt){
       toast.error("Sala Fechada");
-
       return;
     }
-    
-    history.push(`Room/${roomCode}`);
+    if(roomRef.val().authorId == user?.id){
+      history.push(`Room/admin/${roomCode}`);
+ 
+    } else{
+      history.push(`Room/${roomCode}`);
+    }
   }
 
   return (

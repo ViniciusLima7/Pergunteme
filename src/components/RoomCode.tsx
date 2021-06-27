@@ -3,6 +3,7 @@ import { toast, Toaster } from 'react-hot-toast';
 import copyImg from '../assets/images/copy.svg';
 
 //import scss
+//import '../styles/room-code.scss';
 import '../styles/room-code.scss';
 
 //Types
