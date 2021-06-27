@@ -3,6 +3,8 @@ import { FormEvent, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
+
 
 // import Images
 import logoImg from '../assets/images/logo.svg';
@@ -32,6 +34,7 @@ export function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
+  const {theme} = useTheme();
 
   //Estados
   const [newQuestion, setNewQuestion] = useState('');
@@ -89,7 +92,7 @@ function backHome(){
   }
 
   return (
-    <div id="page-room">
+    <div id="page-room" className={theme}>
 
       <header>
 

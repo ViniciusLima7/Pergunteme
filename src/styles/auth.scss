@@ -1,10 +1,35 @@
 #page-auth {
   display: flex;
   align-items: center;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
 
-  &.dark{
+
+  &.dark {
     background: #333;
+    height: 100%;
+
+
+   button{
+      background: #7651e4;
+      color: #FFF;
+      
+    }
+
+    h1{
+      color: #FFF;
+    }
+
+    h2{
+      color: #FFF;
+    }
+
+    p{
+      color: #FFF;
+    }
+    img{
+      color: #FFF;
+    }
   }
 
   aside {
@@ -44,7 +69,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
   }
 
   .main-content {
@@ -58,11 +82,11 @@
     > img {
       align-self: center;
     }
-    h2{
-      font-size:24px;
+    h2 {
+      font-size: 24px;
       margin: 64px 0 24px;
 
-      font-family: 'Poppins',sans-serif;
+      font-family: "Poppins", sans-serif;
     }
     form {
       input {
@@ -81,89 +105,89 @@
       input {
         width: 100%;
       }
-
     }
 
-    p{
+    p {
       font-size: 14px;
       color: #737380;
       margin-top: 16px;
-      a{
-        color:#E559F9;
+      a {
+        color: #e559f9;
       }
     }
   }
   .create-room {
-    margin-top:64px;
-    height:50px;
-    border-radius:8px;
+    margin-top: 64px;
+    height: 50px;
+    border-radius: 8px;
     font-weight: 500;
-    background: #EA4335;
-    color:#FFF;
+    background: #ea4335;
+    color: #fff;
 
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
 
     cursor: pointer;
-    border:0;
+    border: 0;
 
     transition: filter(0.2);
 
-    img{
+    img {
       margin-right: 8px;
     }
-    &:hover{
+    &:hover {
       filter: brightness(0.9);
     }
   }
 
-  .alter-theme{
-    position: top;
-    margin-top:64px;
-    height:50px;
-    border-radius:8px;
+  .alter-theme {
+    margin-top: 64px;
+    margin-bottom: 80px;
+    height: 50px;
+    
+    border-radius: 8px;
     font-weight: 500;
-    background: #7651E4;
-    color:#FFF;
+    background: #7651e4;
+    color: #fff;
 
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
 
     cursor: pointer;
-    border:0;
+    border: 0;
 
     transition: filter(0.2);
 
-    img{
+    img {
       margin-right: 8px;
     }
-    &:hover{
+    &:hover {
       filter: brightness(0.9);
     }
   }
   .separator {
-    font-size:14px;
+    font-size: 14px;
     color: #a8a8b3;
 
-    margin:32px 0;
+    margin: 32px 0;
     display: flex;
     align-items: center;
 
-    &::before{
-      content: '';
-      flex:1;
-      height:1px;
-      background:#a8a8b3;
+    &::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
       margin-right: 16px;
     }
 
-    &::after{
-      content: '';
-      flex:1;
-      height:1px;
-      background:#a8a8b3;
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
       margin-left: 16px;
     }
   }

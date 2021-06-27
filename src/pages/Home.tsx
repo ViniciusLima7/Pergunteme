@@ -94,18 +94,18 @@ export function Home() {
         
         <div className="main-content">
         
-        {/* <button 
+        <button 
         onClick={toggleTheme}
         className="alter-theme"
         >
           Mudar Tema
-        </button> */}
+        </button>
           <img src={logoImg} alt="Logo"></img>
           <button
             onClick={handleCreateRoom}
             className="create-room"
           >
-            <br></br>
+           
             <img src={googleIconImg} alt="Logo Google"></img>
             Crie sua sala com o Google
           </button>

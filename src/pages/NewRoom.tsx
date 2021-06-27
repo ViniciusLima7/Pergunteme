@@ -15,6 +15,8 @@ import {Button} from '../components/Button';
 //import Hooks
 import { useAuth} from '../hooks/useAuth'
 import { useState } from 'react';
+import { useTheme } from '../hooks/useTheme';
+
 
 //import firebase e Toaster
 import { database } from '../services/firebase';
@@ -24,6 +26,7 @@ export function NewRoom() {
 
   const {user} = useAuth();
   const history = useHistory();
+  const {theme} = useTheme();
 
 
   //Estados
@@ -56,7 +59,7 @@ export function NewRoom() {
 
   return (
 
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
 
       <aside>
 
