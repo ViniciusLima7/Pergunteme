@@ -1,3 +1,8 @@
+## About me
+
+[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/ViniciusLima7)](https://github.com/ViniciusLima7)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/marcos-vinicius-lima/)](https://www.linkedin.com/in/marcos-vinicius-lima/)
+
 # Passo a  passo para usar esse Projeto.
 
 
@@ -7,13 +12,11 @@
 
 <br>
 
-
-
-## Visão Geral
+# 💻 Projeto
 
 Projeto Desenvolvido na 6° Edição do NLW, utilizando ReactJS, com o propósito de Fazer Perguntas e Responder ao vivo.
-
 Aplicação Integrada com o Firebase, Login Google, React Router.
+
 
 # Projeto Publicado
 
@@ -24,6 +27,18 @@ https://letmeask-ap.web.app/
 - Editor de Texto
 - Node 
 - Yarn (Opcional)
+
+## 🛠 Tecnologias Usadas :heart_eyes:
+
+- HTML
+- CSS
+- Typescript
+- REACT
+
+
+# Clone este repositório
+
+<code>$ git clone https://github.com/ViniciusLima7/Pergunteme.git</code>
 
 # Criando Projeto com Typescript
 
@@ -73,3 +88,8 @@ Faça login no google
 Iniciar Projeto
 
 `firebase init`
+
+
+# 📝 Licença
+
+Esse projeto foi desenvolvido por [Vinicius Lima](https://www.linkedin.com/in/marcos-vinicius-lima/)
