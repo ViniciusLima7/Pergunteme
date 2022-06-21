@@ -4,31 +4,28 @@
   // height: 100vh;
   height: 100%;
 
-
   &.dark {
     background: #333;
     height: 100%;
 
-
-   button{
+    button {
       background: #7651e4;
-      color: #FFF;
-      
+      color: #fff;
     }
 
-    h1{
-      color: #FFF;
+    h1 {
+      color: #fff;
     }
 
-    h2{
-      color: #FFF;
+    h2 {
+      color: #fff;
     }
 
-    p{
-      color: #FFF;
+    p {
+      color: #fff;
     }
-    img{
-      color: #FFF;
+    img {
+      color: #fff;
     }
   }
 
@@ -40,6 +37,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
 
     padding: 102px 80px;
 
@@ -145,7 +143,7 @@
     margin-top: 64px;
     margin-bottom: 80px;
     height: 50px;
-    
+
     border-radius: 8px;
     font-weight: 500;
     background: #7651e4;
